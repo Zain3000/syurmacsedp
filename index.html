@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AyurMac | Brand Fusion Plan</title>
+    <!-- Chosen Palette: Brand Fusion (McDonald's Red/Yellow + Patanjali Saffron/Earthy Tones) -->
+    <!-- Application Structure Plan: A single-page dashboard designed to visually represent the merger. The layout is clean and modern (McDonald's) while the color palette and textures are warm and natural (Patanjali). This fusion approach makes the brand identity immediately clear and appealing. -->
+    <!-- Visualization & Content Choices: 
+    - Merger Synergies -> Compare -> Color-coded cards explicitly using each brand's primary colors (Red vs. Saffron).
+    - Food Philosophy -> Inform -> Cards with a natural, earthy feel to represent the core tenets.
+    - Product Menu -> Organize/Inform -> A vibrant gallery with hover effects that use the brand's accent colors.
+    - Financial Outlook -> Inform/Compare -> Bar Chart using the full fused palette for a dynamic look.
+    - Trust Strategy -> Organize -> A clean accordion that uses accent colors for clarity.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FEFBF6; /* A warm, earthy off-white */
+            color: #374151; /* gray-700 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .nav-link {
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #DC2626; /* red-600 */
+        }
+        .btn-primary {
+            @apply px-8 py-3 bg-red-600 text-white font-bold rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105;
+        }
+        .section-title {
+            @apply text-4xl md:text-5xl font-extrabold text-gray-800 text-center;
+        }
+        .section-intro {
+            @apply mt-4 text-center text-gray-600 max-w-3xl mx-auto text-lg;
+        }
+        .hero-section {
+            background-image: linear-gradient(to right, rgba(249, 250, 251, 0.9), rgba(249, 250, 251, 0.8)), url('https://placehold.co/1600x900/E5E7EB/374151?text=Wholesome+Cuisine');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-lg sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
+            <a href="#hero" class="flex items-center gap-3">
+                <img src="https://i.postimg.cc/B6Fh4zY9/Whats-App-Image-2025-08-19-at-17-31-47-1af8835f.jpg" alt="AyurMac Logo" class="h-16">
+                <span class="text-3xl font-extrabold">
+                    <span class="text-green-800">Ayur</span><span class="text-yellow-500">Mac</span>
+                </span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#union" class="nav-link">About Us</a>
+                <a href="#menu" class="nav-link">Product/Service</a>
+                <a href="#opportunity" class="nav-link">Investors</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section 1: Hero -->
+        <section id="hero" class="hero-section">
+            <div class="container mx-auto px-6 py-24 md:py-32 text-center">
+                <h2 class="text-6xl md:text-8xl font-extrabold">
+                    <span class="text-green-800">Ayur</span><span class="text-red-700">Mac</span>
+                </h2>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mt-4">
+                    Bite into Balance.
+                </h1>
+                <p class="mt-8 text-xl text-gray-700 max-w-3xl mx-auto">
+                    A revolutionary fusion of Ayurvedic wellness and fast-food convenience. This is your invitation to a new era of mindful eating.
+                </p>
+                <div class="mt-12">
+                    <a href="#menu" class="btn-primary">Discover The Menu</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Unlikely Union -->
+        <section id="union" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Two Titans, One Vision</h2>
+                <p class="section-intro">
+                    AyurMac is born from a powerful synergy. We combine the operational excellence of McDonald's with the natural, trusted philosophy of Patanjali.
+                </p>
+                <div class="mt-16 grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+                    <div class="bg-red-50 p-8 rounded-lg border-2 border-red-500 shadow-lg">
+                        <h3 class="text-3xl font-bold text-red-700 mb-4">The McDonald's Engine</h3>
+                        <p class="text-gray-600 mb-6">Unmatched speed, consistency, and global reach.</p>
+                        <ul class="space-y-4 text-md">
+                            <li class="flex items-start gap-3"><span class="text-yellow-500 mt-1 font-bold">●</span><strong>Global Infrastructure</strong></li>
+                            <li class="flex items-start gap-3"><span class="text-yellow-500 mt-1 font-bold">●</span><strong>Operational Trust</strong></li>
+                            <li class="flex items-start gap-3"><span class="text-yellow-500 mt-1 font-bold">●</span><strong>Supply Chain Mastery</strong></li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-8 rounded-lg border-2 border-green-500 shadow-lg">
+                        <h3 class="text-3xl font-bold text-green-700 mb-4">The Patanjali Soul</h3>
+                        <p class="text-gray-600 mb-6">Authenticity rooted in nature, wellness, and tradition.</p>
+                        <ul class="space-y-4 text-md">
+                            <li class="flex items-start gap-3"><span class="text-green-700 mt-1 font-bold">●</span><strong>Ayurvedic Credibility</strong></li>
+                            <li class="flex items-start gap-3"><span class="text-green-700 mt-1 font-bold">●</span><strong>Wellness Philosophy</strong></li>
+                            <li class="flex items-start gap-3"><span class="text-green-700 mt-1 font-bold">●</span><strong>Loyal Customer Base</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Our Food Philosophy -->
+        <section id="philosophy" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Our Core Principles</h2>
+                <p class="section-intro">
+                    Every meal is a thoughtful blend of tradition and innovation. These are the commitments that make our food unique.
+                </p>
+                <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="bg-white p-8 rounded-lg text-center border border-gray-200 shadow-md">
+                        <div class="text-4xl mb-4">✨</div>
+                        <h3 class="text-xl font-bold text-gray-800">Golden Ghee</h3>
+                        <p class="text-gray-600 mt-2">We use nutrient-rich Ghee for its good fats and digestive benefits, a true Ayurvedic superfood.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg text-center border border-gray-200 shadow-md">
+                        <div class="text-4xl mb-4">🌿</div>
+                        <h3 class="text-xl font-bold text-gray-800">Herbal Infusions</h3>
+                        <p class="text-gray-600 mt-2">From Ajwain in our buns to Tulsi in our teas, we infuse our food with beneficial herbs and spices.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg text-center border border-gray-200 shadow-md">
+                        <div class="text-4xl mb-4">🔥</div>
+                        <h3 class="text-xl font-bold text-gray-800">Baked with Care</h3>
+                        <p class="text-gray-600 mt-2">We bake, not fry, to lock in natural flavor and nutrients while reducing unhealthy fats.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: The Menu -->
+        <section id="menu" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Explore Our Menu</h2>
+                <p class="section-intro">
+                    Familiar favorites, reimagined with an Ayurvedic twist. Filter by category to discover your new go-to meal.
+                </p>
+                <div id="menu-filters" class="mt-12 flex justify-center flex-wrap gap-4">
+                    <button class="menu-filter-btn active" data-filter="all">All</button>
+                    <button class="menu-filter-btn" data-filter="burgers">Burgers</button>
+                    <button class="menu-filter-btn" data-filter="wraps">Wraps</button>
+                    <button class="menu-filter-btn" data-filter="bowls">Bowls</button>
+                    <button class="menu-filter-btn" data-filter="sides">Sides</button>
+                    <button class="menu-filter-btn" data-filter="drinks">Drinks</button>
+                </div>
+                <div id="menu-grid" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Menu items will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: The Opportunity -->
+        <section id="opportunity" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">A New Market in the Making</h2>
+                <p class="section-intro">
+                    By merging fast-food's reach with wellness's growth, we are creating a new, high-value market category. Our financial outlook is strong and sustainable.
+                </p>
+                <div class="mt-16 max-w-5xl mx-auto bg-white p-8 rounded-lg shadow-xl border border-gray-200">
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Our Strategy for Building Trust -->
+        <section id="strategy" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Our Promise: Transparency & Trust</h2>
+                <p class="section-intro">
+                    We understand the questions. Our strategy is built on open communication and authentic actions to earn your confidence.
+                </p>
+                <div id="strategy-cards" class="mt-12 max-w-4xl mx-auto space-y-4">
+                    <!-- Strategy cards will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-10 text-center">
+            <p class="text-3xl font-extrabold">
+                <span class="text-green-400">Ayur</span><span class="text-red-500">Mac</span>
+            </p>
+            <p class="text-gray-400 mt-2">Bite into Balance.</p>
+            <div class="mt-6 flex justify-center gap-6 text-gray-300">
+                 <a href="tel:7907958296" class="hover:text-yellow-400">7907958296</a>
+                 <span class="text-gray-500">|</span>
+                 <a href="mailto:ayurmac@gmail.com" class="hover:text-yellow-400">ayurmac@gmail.com</a>
+            </div>
+             <div class="mt-8 flex justify-center flex-wrap gap-x-6 gap-y-2 text-gray-300">
+                <a href="#hero" class="hover:text-yellow-400">Home</a>
+                <a href="#union" class="hover:text-yellow-400">About Us</a>
+                <a href="#menu" class="hover:text-yellow-400">Product/Service Page</a>
+                <a href="#opportunity" class="hover:text-yellow-400">Investor/Financial Page</a>
+                <a href="#contact" class="hover:text-yellow-400">Contact Page</a>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-gray-500 text-sm">
+                &copy; 2025 AyurMac Global Corporation. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Menu Item Details -->
+    <div id="menu-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden items-center justify-center p-4">
+        <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto p-8 relative transform transition-all duration-300 scale-95 opacity-0">
+            <!-- Content injected by JS -->
+        </div>
+    </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // --- Data Store ---
+    const menuItems = [
+        { id: 1, name: 'Turmeric Paneer Burger', category: 'burgers', desc: 'An ajwain-infused multigrain bun with a paneer patty marinated in anti-inflammatory turmeric, ginger, and tulsi.', benefit: 'Aids digestion and reduces inflammation.' },
+        { id: 2, name: 'Moringa Chicken Burger', category: 'burgers', desc: 'Lean chicken patty seasoned with nutrient-rich moringa and methi (fenugreek), served on an ajwain-infused multigrain bun.', benefit: 'Packed with vitamins and boosts energy.' },
+        { id: 3, name: 'Sattvic Veg Burger', category: 'burgers', desc: 'A pure vegetarian option with no onion or garlic, spiced with rock salt & sattvic herbs on an ajwain-infused multigrain bun.', benefit: 'Promotes clarity and calmness of mind.' },
+        { id: 4, name: 'Ragi & Quinoa Wrap', category: 'wraps', desc: 'High-fiber ragi & quinoa wrap filled with sprouts, mint chutney, and herbal sauces.', benefit: 'Excellent source of protein and fiber.' },
+        { id: 5, name: 'Immunity Wrap', category: 'wraps', desc: 'Roasted seasonal vegetables, turmeric hummus, and fresh tulsi leaves in a whole wheat wrap.', benefit: 'Designed to support the immune system.' },
+        { id: 6, name: 'The AyurBowl', category: 'bowls', desc: 'A balanced meal of brown rice, rajma (kidney beans), sautéed veggies, and a curry-leaf infused dressing.', benefit: 'A complete meal for sustained energy.' },
+        { id: 7, name: 'Ghee Rice Bowl', category: 'bowls', desc: 'A small portion of aromatic rice cooked with ayurvedic herbs in pure ghee, served with a fresh salad.', benefit: 'Nourishing and easy to digest, with healthy fats from ghee.' },
+        { id: 8, name: 'Baked Sweet Potato Wedges', category: 'sides', desc: 'Oven-baked sweet potato wedges seasoned with Himalayan rock salt.', benefit: 'A vitamin-rich, low-fat alternative to fries.' },
+        { id: 9, name: 'Ragi Nachos', category: 'sides', desc: 'Crispy baked nachos made from ragi flour, served with a fresh tulsi-tomato salsa.', benefit: 'A guilt-free, crunchy snack.' },
+        { id: 10, name: 'Tulsi Lemon Iced Tea', category: 'drinks', desc: 'Refreshing iced tea brewed with holy basil (tulsi) leaves and lemon, sweetened with natural jaggery.', benefit: 'Reduces stress and boosts immunity.' },
+        { id: 11, name: 'Ashwagandha Latte', category: 'drinks', desc: 'A calming and energizing latte with adaptogenic ashwagandha. Served hot or cold.', benefit: 'Helps the body manage stress.' },
+        { id: 12, name: 'Golden Milk Shake', category: 'drinks', desc: 'A delicious blend of turmeric, black pepper, and spices with almond milk.', benefit: 'Powerful anti-inflammatory properties.' },
+    ];
+
+    const strategyPoints = [
+        { title: 'Unified Culture & Internal Alignment', content: 'We are creating a "One Team" philosophy focused on our shared mission of "Bite into Balance." Training will emphasize deep respect for both McDonald\'s legacy of service and Patanjali\'s legacy of wellness.' },
+        { title: 'Transparent Communication', content: 'Our launch campaign tackles the controversy head-on with confidence. We will run targeted messaging to assure loyalists of both brands that we are enhancing choice, not replacing favorites.' },
+        { title: 'Authenticity & Transparency Initiatives', content: 'QR codes on packaging will link to a "Source Story," showing the farms where our ingredients are grown. We are also forming an independent Ayurvedic Council to oversee product formulation and ensure authenticity.' },
+        { title: 'Phased & Responsive Rollout', content: 'AyurMac will launch as a distinct menu within existing McDonald\'s locations in pilot cities. We will actively listen to customer feedback to refine our offerings before a wider, global launch.' }
+    ];
+
+    // --- Menu Interaction Logic ---
+    const menuGrid = document.getElementById('menu-grid');
+    const filterButtons = document.querySelectorAll('.menu-filter-btn');
+    const menuModal = document.getElementById('menu-modal');
+    const modalContent = document.getElementById('modal-content');
+
+    function renderMenu(filter = 'all') {
+        menuGrid.innerHTML = '';
+        const filteredItems = filter === 'all' ? menuItems : menuItems.filter(item => item.category === filter);
+        
+        filteredItems.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-2 transition-all duration-300 group border-b-4 border-transparent hover:border-red-500';
+            const icon = getIconForCategory(item.category);
+            card.innerHTML = `
+                <div class="h-48 bg-gray-100 flex flex-col items-center justify-center text-gray-400 group-hover:bg-yellow-50 transition-colors duration-300">
+                    <div class="text-5xl">${icon}</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-lg text-gray-800 truncate">${item.name}</h3>
+                    <p class="text-sm text-gray-600 mt-1 h-10">${item.desc.substring(0, 55)}...</p>
+                </div>
+            `;
+            card.addEventListener('click', () => openModal(item));
+            menuGrid.appendChild(card);
+        });
+    }
+    
+    function getIconForCategory(category) {
+        switch(category) {
+            case 'burgers': return '🍔';
+            case 'wraps': return '🌯';
+            case 'bowls': return '🥗';
+            case 'sides': return '🍟';
+            case 'drinks': return '🍹';
+            default: return '🍲';
+        }
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active', 'bg-red-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            e.currentTarget.classList.add('active', 'bg-red-600', 'text-white');
+            e.currentTarget.classList.remove('bg-gray-200', 'text-gray-700');
+            renderMenu(e.currentTarget.dataset.filter);
+        });
+        button.classList.add('px-5', 'py-2', 'rounded-full', 'font-semibold', 'text-sm', 'transition-all', 'duration-300', 'bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+        if(button.classList.contains('active')) {
+             button.classList.remove('bg-gray-200', 'text-gray-700');
+             button.classList.add('bg-red-600', 'text-white');
+        }
+    });
+
+    function openModal(item) {
+        modalContent.innerHTML = `
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-3xl font-bold">&times;</button>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">${item.name}</h2>
+            <p class="text-gray-600 mb-6">${item.desc}</p>
+            <div class="bg-green-50 border-l-4 border-green-500 text-green-900 p-4 rounded-r-lg">
+                <h4 class="font-bold">Ayurvedic Insight</h4>
+                <p>${item.benefit}</p>
+            </div>
+        `;
+        menuModal.classList.remove('hidden');
+        menuModal.classList.add('flex');
+        setTimeout(() => {
+            modalContent.classList.remove('scale-95', 'opacity-0');
+            modalContent.classList.add('scale-100', 'opacity-100');
+        }, 10);
+        document.getElementById('close-modal').addEventListener('click', closeModal);
+    }
+
+    function closeModal() {
+        modalContent.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            menuModal.classList.add('hidden');
+            menuModal.classList.remove('flex');
+        }, 300);
+    }
+    
+    menuModal.addEventListener('click', (e) => {
+        if (e.target === menuModal) {
+            closeModal();
+        }
+    });
+
+    // --- Strategy Cards Logic ---
+    const strategyContainer = document.getElementById('strategy-cards');
+    strategyPoints.forEach((point) => {
+        const card = document.createElement('div');
+        card.className = 'border border-gray-200 rounded-lg overflow-hidden bg-white';
+        card.innerHTML = `
+            <button class="w-full text-left p-5 flex justify-between items-center hover:bg-gray-50 focus:outline-none">
+                <h3 class="text-lg font-semibold text-gray-800">${point.title}</h3>
+                <span class="transform transition-transform duration-300 text-red-500 font-bold text-2xl">+</span>
+            </button>
+            <div class="px-5 text-gray-600 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                <p class="pb-5 pt-2">${point.content}</p>
+            </div>
+        `;
+        strategyContainer.appendChild(card);
+
+        const button = card.querySelector('button');
+        const content = card.querySelector('div');
+        const icon = card.querySelector('span');
+
+        button.addEventListener('click', () => {
+            const isExpanded = content.style.maxHeight && content.style.maxHeight !== '0px';
+            if (isExpanded) {
+                content.style.maxHeight = '0px';
+                icon.classList.remove('rotate-45');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.classList.add('rotate-45');
+            }
+        });
+    });
+
+    // --- Chart.js Logic ---
+    const ctx = document.getElementById('revenueChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Global Revenue Uplift (2Y)', 'Avg. Customer Spend Increase', 'New Market Penetration'],
+            datasets: [{
+                label: 'Projected Growth (%)',
+                data: [8, 20, 12],
+                backgroundColor: [
+                    'rgba(249, 115, 22, 0.8)',  // Orange-500
+                    'rgba(220, 38, 38, 0.8)',   // Red-600
+                    'rgba(251, 191, 36, 0.8)'   // Amber-400
+                ],
+                borderColor: [
+                    'rgba(249, 115, 22, 1)',
+                    'rgba(220, 38, 38, 1)',
+                    'rgba(251, 191, 36, 1)'
+                ],
+                borderWidth: 1,
+                borderRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        },
+                        font: {
+                            weight: '500'
+                        }
+                    }
+                },
+                y: {
+                     ticks: {
+                        font: {
+                            weight: '500'
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: 'Key Financial & Market Projections',
+                    font: {
+                        size: 18,
+                        weight: '600'
+                    },
+                    padding: {
+                        bottom: 20
+                    }
+                }
+            }
+        }
+    });
+
+    // --- Initial Render ---
+    renderMenu();
+});
+</script>
+</body>
+</html>
